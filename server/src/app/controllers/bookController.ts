@@ -18,6 +18,24 @@ export const getBooks = async (req: Request, res: Response) => {
   }
 };
 
+export const getBook = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const book = await bookModel.findById(id);
+
+    return res.status(200).json({
+      success: true,
+      message: "get book sucessfully",
+      data: book,
+    });
+  } catch (error: any) {
+    return res.status(500).json({
+      success: true,
+      message: error.message,
+    });
+  }
+};
+
 export const addBook = async (req: Request, res: Response) => {
   try {
     const {
