@@ -16,12 +16,14 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-4 md:px-8">
         {/* Logo */}
         <Link href="/" className="text-xl font-bold hover:opacity-80">
-          Book-Library
+          <div className="text-2xl font-bold  text-blue-600/80 hover:text-blue-600 tracking-tight cursor-pointer">
+            Book<span className="text-white/80 hover:text-white ">Library</span>
+          </div>
         </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-4 sm:gap-6">
-          <Link href="/books" className="hover:opacity-80">
+          <Link href="/all-books" className="hover:opacity-80">
             Books
           </Link>
           <Link href="/subscription" className="hover:opacity-80">
@@ -38,7 +40,7 @@ export default function Navbar() {
             <span className="text-sm opacity-50">Loading...</span>
           ) : user ? (
             <>
-              <Link href="/dashboard/user" className="hover:opacity-80 ">
+              <Link href="/add-book" className="hover:opacity-80 ">
                 My Dashboard
               </Link>
 
@@ -69,7 +71,7 @@ export default function Navbar() {
         }`}
       >
         <Link
-          href="/books"
+          href="/all-books"
           onClick={() => setMobileOpen(false)}
           className="hover:opacity-80"
         >
@@ -102,7 +104,7 @@ export default function Navbar() {
         ) : user ? (
           <>
             <Link
-              href="/dashboard/user"
+              href="/add-book"
               onClick={() => setMobileOpen(false)}
               className="hover:opacity-80 "
             >
