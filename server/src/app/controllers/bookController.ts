@@ -7,7 +7,7 @@ export const getBooks = async (req: Request, res: Response) => {
 
     return res.status(201).json({
       success: true,
-      message: "book added successfully",
+      message: "all book get successfully",
       data: books,
     });
   } catch (error: any) {
@@ -87,7 +87,7 @@ export const updateBook = async (req: Request, res: Response) => {
 
     res.status(201).json({
       success: true,
-      message: "book added successfully",
+      message: "book updated successfully",
       data: await updateBook,
     });
   } catch (error: any) {
@@ -106,12 +106,12 @@ export const deleteBook = async (req: Request, res: Response) => {
     if (!book) {
       return res.status(404).json({
         success: false,
-        message: "no book found",
+        message: "No book found",
       });
     }
     return res.status(200).json({
       success: true,
-      message: "delete book found",
+      message: "delete book ",
     });
   } catch (error: any) {
     return res.status(500).json({
