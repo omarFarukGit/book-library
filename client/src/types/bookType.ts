@@ -14,3 +14,9 @@ export type TApiResponse<T> = {
   message: string;
   data: T;
 };
+
+export type TParams = {
+  params: {
+    id: string;
+  };
+};
