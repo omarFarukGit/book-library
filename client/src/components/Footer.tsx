@@ -13,7 +13,7 @@ const Footer = () => {
       <section className="mx-auto w-11/12 gap-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  py-8 lg:grid-cols-4 ">
         <nav className="space-y-3">
           <div className="text-2xl font-bold  text-blue-600/80 hover:text-blue-600 tracking-tight cursor-pointer">
-            Book<span className="text-white/80 hover:text-white ">Hub</span>
+            Book<span className="text-white/80 hover:text-white ">Library</span>
           </div>
           <div className="flex flex-col gap-2">
             <a className="link link-hover text-white hover:text-blue-400">
