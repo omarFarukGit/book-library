@@ -51,3 +51,31 @@ export const addBook = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const updateBook = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const books = req.body;
+    const updateBook = await bookModel.findByIdAndUpdate(id, { ...books });
+    // const {
+    //   title,
+    //   author,
+    //   description,
+    //   category,
+    //   available_quantity,
+    //   discount,
+    //   image_url,
+    // } = req.body;
+
+    res.status(201).json({
+      success: true,
+      message: "book added successfully",
+      data: await updateBook,
+    });
+  } catch (error: any) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
