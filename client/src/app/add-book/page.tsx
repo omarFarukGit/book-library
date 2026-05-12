@@ -12,6 +12,7 @@ import {
 } from "@heroui/react";
 import { redirect, useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "react-toastify";
 
 const AddBook = () => {
   const router = useRouter();
@@ -31,6 +32,7 @@ const AddBook = () => {
     const data = await res.json();
     console.log(data);
     if (data.success) {
+      toast.success("book added sucessfully");
       router.push("/all-books");
     }
   };
