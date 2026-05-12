@@ -1,5 +1,7 @@
 import type { Response, Request } from "express";
 import { UserModel } from "../models/userModel.js";
+import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken'
 
 export const signup = async (req: Request, res: Response) => {
   const { name, email, phone, username, password, role } = req.body;
@@ -20,12 +22,14 @@ export const signup = async (req: Request, res: Response) => {
       });
     }
 
+    const hashPass = await bcrypt.hash(password, 10);
+
     const user = await UserModel.create({
       name,
       email,
       phone,
       username,
-      password,
+      password: hashPass,
       role,
     });
 
@@ -43,3 +47,21 @@ export const signup = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const loging=async(req:Request,res:Response)=>{
+    const {email,password}=req.body;
+    try {
+        const user= await UserModel.findOne({email});
+
+  const hash=await bcrypt.compare()
+
+        const token=jwt.sign(email,'nost',{
+            expiresIn:'1m'
+        })
+
+        return res.status(200).cookie('token',token).json({})
+
+    } catch (error:any) {
+        
+    }
+}
